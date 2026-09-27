@@ -1,6 +1,6 @@
 # SnapOCR
 
-A lightweight and minimalist screenshot text recognition tool designed specifically for macOS.
+A lightweight and minimalist screenshot text recognition tool designed specifically for macOS. Compatible with macOS 27.
 
 ## Features
 
