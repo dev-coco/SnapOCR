@@ -20,6 +20,11 @@ class OCRManager {
         }
         return supported.first ?? "en-US"
     }
+
+    // 检测是否是 macOS 27 版本
+    private static func isMacOS27() -> Bool {
+        return ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 27
+    }
     
     // 截图流程
     func takeScreenshotAndProcess() {
@@ -78,6 +83,12 @@ class OCRManager {
                     ToastWindowController.shared.showToast(message: "复制到剪贴板", icon: "👍")
                 }
             }
+        }
+
+        // macOS 27 版本使用旧版本 Revision 2，因为新版本有 CJK 模型识别问题
+        // revision 必须在设置 recognitionLanguages 之前指定
+        if OCRManager.isMacOS27() {
+            request.revision = VNRecognizeTextRequestRevision2
         }
         
         // 配置 OCR 请求参数

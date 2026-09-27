@@ -9,7 +9,7 @@ struct SettingsView: View {
     @AppStorage("autoOpenLinks") private var autoOpenLinks = false
     @AppStorage("launchAtLogin") private var launchAtLogin = false
 
-    // 获取系统支持的语言列表
+    // 获取系统支持的语言列表ocrLanguage
     let supportedLanguages = OCRManager.getSupportedLanguages()
 
     var body: some View {
